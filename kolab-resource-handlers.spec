@@ -22,7 +22,7 @@
 Summary:	Kolab components for group and resource management
 Name:		kolab-resource-handlers
 Version:	2.1.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		System/Servers
 URL:		http://www.kolab.org/
@@ -124,7 +124,7 @@ rm -rf %{buildroot}
 %attr(0755,root,root) %dir %{kolab_webroot}/kolabfilter
 %attr(0644,root,root) %{kolab_webroot}/freebusy/*.php
 %attr(0644,root,root) %{kolab_webroot}/kolabfilter/*.php
-%attr(0755,root,root) %dir %{_datadir}/kolab/scripts/resmgr
+%attr(0755,%{l_musr},%{l_mgrp}) %dir %{_datadir}/kolab/scripts/resmgr
 %attr(0755,root,root) %{_datadir}/kolab/scripts/resmgr/kolabfilter.php
 %attr(0755,root,root) %{_datadir}/kolab/scripts/resmgr/kolabmailboxfilter.php
 %attr(0770,apache,apache) %dir %{_localstatedir}/kolab/freebusy/cache
