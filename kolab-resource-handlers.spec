@@ -22,7 +22,7 @@
 Summary:	Kolab components for group and resource management
 Name:		kolab-resource-handlers
 Version:	2.1.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		System/Servers
 URL:		http://www.kolab.org/
@@ -37,12 +37,12 @@ Requires(pre):	rpm-helper
 Requires(postun): rpm-helper
 Requires(pre):	apache-conf >= 2.2.4
 Requires(pre):	apache-mod_php
-Requires(pre):	apache-mpm-prefork >= 2.2.4
+Requires(pre):	apache-mpm >= 2.2.4
 Requires(pre):	kolab >= 2.1.0
 Requires(pre):	kolab-horde-framework >= 2.1.0
 Requires:	apache-conf >= 2.2.4
 Requires:	apache-mod_php
-Requires:	apache-mpm-prefork >= 2.2.4
+Requires:	apache-mpm >= 2.2.4
 Requires:	kolab >= 2.1.0
 Requires:	kolab-horde-framework >= 2.1.0
 Requires:	php-dba
