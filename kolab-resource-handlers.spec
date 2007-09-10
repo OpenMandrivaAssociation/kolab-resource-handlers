@@ -22,7 +22,7 @@
 Summary:	Kolab components for group and resource management
 Name:		kolab-resource-handlers
 Version:	2.1.0
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPL
 Group:		System/Servers
 URL:		http://www.kolab.org/
@@ -92,7 +92,7 @@ rm -rf %{buildroot}
 
 %makeinstall_std
 
-install -d %{buildroot}/var/spool/resmgr/filter
+install -d %{buildroot}%{_localstatedir}/kolab/resmgr/filter
 install -d %{buildroot}%{_localstatedir}/kolab/freebusy/cache
 
 # cleanup
@@ -118,8 +118,8 @@ rm -rf %{buildroot}
 %doc AUTHORS COPYING ChangeLog INSTALL NEWS
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/kolab/resmgr/freebusy.conf
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/kolab/resmgr/resmgr.conf
-%attr(0700,%{l_musr},%{l_mgrp}) %dir /var/spool/resmgr
-%attr(0700,%{l_musr},%{l_mgrp}) %dir /var/spool/resmgr/filter
+%attr(0700,%{l_musr},%{l_mgrp}) %dir %{_localstatedir}/kolab/resmgr
+%attr(0700,%{l_musr},%{l_mgrp}) %dir %{_localstatedir}/kolab/resmgr/filter
 %attr(0755,root,root) %dir %{kolab_webroot}/freebusy
 %attr(0755,root,root) %dir %{kolab_webroot}/kolabfilter
 %attr(0644,root,root) %{kolab_webroot}/freebusy/*.php
