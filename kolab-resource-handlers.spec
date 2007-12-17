@@ -54,7 +54,6 @@ Requires:	php-mbstring
 Requires:	php-mcal
 Requires:	php-mcrypt
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 Kolab components for group and resource management.
