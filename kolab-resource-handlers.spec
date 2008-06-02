@@ -92,8 +92,8 @@ rm -rf %{buildroot}
 
 %makeinstall_std
 
-install -d %{buildroot}%{_localstatedir}/kolab/resmgr/filter
-install -d %{buildroot}%{_localstatedir}/kolab/freebusy/cache
+install -d %{buildroot}%{_localstatedir}/lib/kolab/resmgr/filter
+install -d %{buildroot}%{_localstatedir}/lib/kolab/freebusy/cache
 
 # cleanup
 rm -rf %{buildroot}%{_datadir}/doc/kolab
@@ -118,8 +118,8 @@ rm -rf %{buildroot}
 %doc AUTHORS COPYING ChangeLog INSTALL NEWS
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/kolab/resmgr/freebusy.conf
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/kolab/resmgr/resmgr.conf
-%attr(0700,%{l_musr},%{l_mgrp}) %dir %{_localstatedir}/kolab/resmgr
-%attr(0700,%{l_musr},%{l_mgrp}) %dir %{_localstatedir}/kolab/resmgr/filter
+%attr(0700,%{l_musr},%{l_mgrp}) %dir %{_localstatedir}/lib/kolab/resmgr
+%attr(0700,%{l_musr},%{l_mgrp}) %dir %{_localstatedir}/lib/kolab/resmgr/filter
 %attr(0755,root,root) %dir %{kolab_webroot}/freebusy
 %attr(0755,root,root) %dir %{kolab_webroot}/kolabfilter
 %attr(0644,root,root) %{kolab_webroot}/freebusy/*.php
@@ -127,6 +127,6 @@ rm -rf %{buildroot}
 %attr(0755,%{l_musr},%{l_mgrp}) %dir %{_datadir}/kolab/scripts/resmgr
 %attr(0755,root,root) %{_datadir}/kolab/scripts/resmgr/kolabfilter.php
 %attr(0755,root,root) %{_datadir}/kolab/scripts/resmgr/kolabmailboxfilter.php
-%attr(0770,apache,apache) %dir %{_localstatedir}/kolab/freebusy/cache
+%attr(0770,apache,apache) %dir %{_localstatedir}/lib/kolab/freebusy/cache
 %attr(0644,root,root) %{kolab_webroot}/freebusy/freebusy.php
 %attr(0644,root,root) %{kolab_webroot}/freebusy/pfb.php
