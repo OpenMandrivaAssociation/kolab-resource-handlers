@@ -22,7 +22,7 @@
 Summary:	Kolab components for group and resource management
 Name:		kolab-resource-handlers
 Version:	2.1.0
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	GPL
 Group:		System/Servers
 URL:		http://www.kolab.org/
