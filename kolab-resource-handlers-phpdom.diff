@@ -1,0 +1,71 @@
+--- freebusy/freebusy.class.php.in	2007-05-20 14:09:45.000000000 +0200
++++ freebusy/freebusy.class.php.in.oden	2007-05-20 14:11:48.000000000 +0200
+@@ -392,44 +392,52 @@
+   }
+ 
+   function getEventHash($xml_text) {
+-    $xmldoc = @domxml_open_mem($xml_text, DOMXML_LOAD_PARSING +
++/*    $xmldoc = @domxml_open_mem($xml_text, DOMXML_LOAD_PARSING +
+ 			       DOMXML_LOAD_COMPLETE_ATTRS + DOMXML_LOAD_SUBSTITUTE_ENTITIES +
+ 			       DOMXML_LOAD_DONT_KEEP_BLANKS, $error);
+-    
++*/
++
++    $xmldoc = new DOMDocument;
++    $xmldoc->validateOnParse = true;
++    $xmldoc->preserveWhiteSpace = false;
++    $xmldoc->loadXML($xml_text);
++
++    /* XXX - how to catch errors in loadXML()?
+     if (!empty($error)) {
+       // There were errors parsing the XML data - abort
+       myLog( "Error parsing \"$xml_txt\": $error", RM_LOG_ERROR);
+       return false;
+     }
+-    
+-    $noderoot = $xmldoc->document_element();
+-    $childnodes = $noderoot->child_nodes();
++    */
++
++    $noderoot = $xmldoc->documentElement;
++    $childnodes = $noderoot->childNodes;
+     
+     $event_hash = array();
+     
+     // Build the event hash
+     foreach ($childnodes as $value) {
+-      //myLog("Looking at tag ".($value->tagname), RM_LOG_DEBUG);
+-      if( $value->tagname == 'recurrence' ) {
++      //myLog("Looking at tag ".($value->tagName), RM_LOG_DEBUG);
++      if( $value->tagName == 'recurrence' ) {
+ 	$rhash = array();
+-	$attrs = $value->attributes();
++	$attrs = $value->attributes;
+ 	foreach( $attrs as $attr ) {
+ 	  //myLog("getEventHash setting rhash[".$attr->name."] = ".$attr->value, RM_LOG_DEBUG);
+ 	  $rhash[$attr->name] = $attr->value;
+ 	}
+-	foreach( $value->child_nodes() as $v ) {
+-	  if( $v->tagname == 'day' || $v->tagname == 'exclusion' ) {
+-	    $rhash[$v->tagname][] = $v->get_content();
++	foreach( $value->childNodes as $v ) {
++	  if( $v->tagName == 'day' || $v->tagName == 'exclusion' ) {
++	    $rhash[$v->tagName][] = $v->nodeValue();
+ 	  } else {
+-	    $rhash[$v->tagname] = $v->get_content();
+-	    if( $v->tagname == 'range' && $v->has_attribute('type') ) {
+-	      $rhash['rangetype'] = $v->get_attribute('type');
++	    $rhash[$v->tagName] = $v->nodeValue;
++	    if( $v->tagName == 'range' && $v->hasAttribute('type') ) {
++	      $rhash['rangetype'] = $v->getAttribute('type');
+ 	    }
+ 	  }
+ 	}	
+-	$event_hash[$value->tagname] = $rhash;
++	$event_hash[$value->tagName] = $rhash;
+       } else {
+-	$event_hash[$value->tagname] = $value->get_content();
++	$event_hash[$value->tagName] = $value->nodeValue;
+       }
+     }
+     
