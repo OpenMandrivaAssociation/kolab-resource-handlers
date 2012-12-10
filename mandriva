@@ -1,0 +1,192 @@
+kolab_usr=kolab
+kolab_grp=kolab
+kolab_musr=kolab
+kolab_mgrp=kolab
+kolab_uid=60001
+kolab_gid=60001
+kolab_rusr=kolab
+kolab_rgrp=kolab
+kolab_susr=kolab
+
+BASHELL=/bin/bash
+KOLABRC=${sbindir}/kolabsrv
+PERL=${bindir}/perl
+PHP=${bindir}/php
+RPM=/bin/rpm
+TAR=/bin/tar
+
+kolab_rcdir=${sysconfdir}/rc.d/init.d
+pkgdocdir=${datadir}/doc/kolab
+
+# perl -V:vendorlib | sed "s/.*'\(.*\)'\;/\1/"
+perllib=perl_vendorlib
+
+amavisd_conffile=${sysconfdir}/amavisd/amavisd.conf
+amavisd_templatedir=${sysconfdir}/amavisd/templates
+amavisd_logfile=/var/log/amavisd
+amavisd_home=${localstatedir}/amavis
+amavisd_rusr=amavis
+amavisd_usr=amavis
+amavisd_grp=amavis
+amavisd_rpm=amavisd-new
+
+fsl_logfile=/var/log/fsl
+
+sysrundir=/var/run
+
+clamav_confdir=${sysconfdir}
+clamav_socket=${localstatedir}/clamav/clamd.socket
+clamav_logfile=/var/log/clamav/clamd.log
+clamav_pidfile=${localstatedir}/clamav/clamd.pid
+clamav_datadir=${localstatedir}/clamav
+freshclam_logfile=/var/log/clamav/freshclam.log
+freshclam_pidfile=/var/run/clamav/freshclam.pid
+clamav_rusr=clamav
+clamav_usr=clamav
+clamav_grp=clamav
+
+emailscan_usr=kolab
+emailscan_grp=kolab
+
+emailserver_confdir=${sysconfdir}/postfix
+emailserver_socket=/var/spool/postfix/extern/cyrus/lmtp
+emailserver_localstatedir=/var/spool/postfix
+emailserver_logfile=/var/log/postfix.log
+emailserver_usr=kolab
+emailserver_grp=kolab
+emailserver_mail_owner=postfix
+emailserver_setgid_grp=postdrop
+emailserver_default_privs=nobody
+emailserver_master_usr=kolab
+emailserver_rpm=postfix
+emailserver_tables_usr=root
+
+ftpserver_scoreboardfile=/var/run/proftpd/proftpd.scoreboard
+ftpserver_logfile=/var/log/proftpd/proftpd.log
+ftpserver_confdir=${sysconfdir}
+ftpserver_pidfile=/var/run/proftpd.pid
+ftpserver_musr=kolab
+ftpserver_usr=nobody
+ftpserver_grp=nogroup
+# Why hardcoded uid/gid???
+ftpserver_uid=65534
+ftpserver_gid=65534
+
+imap_confdir=${sysconfdir}
+imap_confperm=0640
+imap_usr=cyrus
+imap_grp=mail
+imap_masterlogfile=${localstatedir}/imap/log/master.log
+imap_misclogfile=${localstatedir}/imap/log/misc.log
+imap_statedir=${localstatedir}/imap
+imap_spool=/var/spool/imap
+imap_sievedir=${localstatedir}/imap/sieve
+imap_lmtp=${imap_statedir}/socket/lmtp
+imap_notify_socket=${imap_statedir}/socket/notify
+imap_rpm=cyrus-imapd
+
+kolab_statedir=${localstatedir}/kolab
+kolab_logdir=/var/log/kolab
+kolab_pidfile=/var/run/kolab/kolab.pid
+kolab_mailboxuiddb=${kolab_statedir}/mailbox-uidcache.db
+kolab_rpm=kolab
+kolab_resource_handlers_rpm=kolab-resource-handlers
+kolab_webadmin_rpm=kolab-webadmin
+perl_kolab_rpm=perl-kolab
+kolab_smtpdpolicy_conffile_usr=kolab
+kolab_smtpdpolicy_conffile_grp=kolab
+kolab_scriptsdir=$(datadir)/kolab/scripts
+
+# This variable makes it possible to store all kolab php modules in its own
+# module.  E.g on suse it will be /usr/share/php/kolab instead of just
+# /usr/share/php. This prevents scattering of the kolab php files.
+kolab_php_module_prefix=
+
+kolab_php_smarty_prefix=Smarty
+
+ldapserver_statedir=${localstatedir}/ldap-kolab
+ldapserver_dir=${localstatedir}/ldap-kolab
+ldapserver_replogfile=${localstatedir}/ldap-kolab/replog
+ldapserver_argsfile=/var/run/ldap/slapd.args
+ldapserver_logfile=/var/log/ldap/ldap.log
+ldapserver_pidfile=/var/run/ldap/slapd.pid
+ldapserverslurpd_pidfile=/var/run/ldap/slurpd.pid
+ldapserver_schemadir=${datadir}/openldap/schema
+ldapserver_confdir=${sysconfdir}/openldap
+ldapserver_usr=root
+ldapserver_grp=ldap
+ldapserver_rgrp=ldap
+ldapserver_rusr=ldap
+
+webserver_document_root=/var/www/html
+webserver_cgidir=/var/www/cgi-bin
+webserver_sessions=${localstatedir}/php
+webserver_logdir=/var/log/httpd
+webserver_acceptlock=${webserver_logdir}/accept.lock
+webserver_runtime_status=${webserver_logdir}/apache_runtime_status
+webserver_errorlogfile=${webserver_logdir}/error_log
+webserver_accesslogfile=${webserver_logdir}/access_log
+webserver_confdir=${sysconfdir}/httpd/conf
+webserver_pidfile=/var/run/httpd/httpd.pid
+webserver_mime_magicfile=${sysconfdir}/httpd/conf/magic
+webserver_mime_typesfile=${sysconfdir}/httpd/conf/mime.types
+webserver_sslscache=${webserver_logdir}/ssl_scache
+webserver_sslmutex=${webserver_logdir}/ssl_mutex
+webserver_web_prefix=/kolab
+webserver_musr=apache
+webserver_usr=apache
+webserver_grp=apache
+webserver_rpm=apache-mpm-prefork
+
+phpini_dir=${sysconfdir}
+phplibdir=${libdir}/php
+phplibdir2=/var/www/html/kolab
+phppeardir=${datadir}/pear
+
+sasl_smtpconffile=${sysconfdir}/sasl2/smtpd.conf
+sasl_authdconffile=${sysconfdir}/saslauthd.conf
+sasl_logfile=/var/log/sasl/saslauthd.log
+
+resmgr_logfile=/var/log/kolab/resmgr.log
+resmgr_confdir=${sysconfdir}/kolab/resmgr
+resmgr_conffile_usr=kolab
+resmgr_conffile_grp=kolab
+resmgr_filterdir=${localstatedir}/kolab/resmgr/filter
+resmgr_scriptsdir=${kolab_scriptsdir}/resmgr
+resmgr_usr=kolab
+resmgr_grp=kolab
+
+fbview_logfile=/var/log/kolab/fbview.log
+freebusy_logfile=/var/log/kolab/freebusy.log
+freebusy_cachedir=${localstatedir}/kolab/freebusy/cache
+freebusy_usr=apache
+freebusy_grp=apache
+
+graveyard_uidcache=${localstatedir}/kolab/graveyard_uidcache.db
+graveyard_tscache=${localstatedir}/kolab/graveyard_tscache.db
+
+backupdir=${sysconfdir}/kolab/backup
+
+pki_grp=kolab
+
+aliases_file=${sysconfdir}/postfix/aliases
+
+# One time backup files.  These original distribution configuration files
+# will be backed up once, just before kolab is about to change those files.
+backupfiles=/etc/amavisd.conf \
+	/etc/clamd.conf \
+	/etc/cyrus.conf \
+	/etc/imapd.conf \
+	/etc/freshclam.conf \
+	/etc/openldap/ldap.conf \
+	/etc/openldap/slapd.conf \
+	/etc/php.ini \
+	/etc/postfix/main.cf \
+	/etc/postfix/master.cf \
+	/etc/postfix/transport \
+	/etc/postfix/virtual \
+	/etc/saslauthd.conf \
+	/etc/sysconfig/ldap \
+	/etc/sysconfig/saslauthd \
+	/etc/sasl2/smtpd.conf \
+	/etc/httpd/modules.d/41_mod_ssl.default-vhost.conf
