@@ -27,7 +27,7 @@ Version:	2.1.0
 Release:	12
 License:	GPL
 Group:		System/Servers
-URL:		http://www.kolab.org/
+URL:		https://www.kolab.org/
 Source0:	kolab-resource-handlers-%{version}.tar.bz2
 Source1:	mandriva
 # php5 doesn't have the domxml extension anymore. This patch makes
