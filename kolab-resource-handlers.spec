@@ -57,6 +57,11 @@ Requires:	php-mcal
 Requires:	php-mcrypt
 BuildArch:	noarch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 Kolab components for group and resource management.
 
